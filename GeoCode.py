@@ -5,10 +5,10 @@ import Levenshtein as lev
 class GeoCode:
     def __init__(self):
         self.threshhold_jw = 0.93
-        self.raw_location_file = 'input_data/ehg_followers_location.csv'
+        self.raw_location_file = 'input_data/locations.csv'
         self.city_list_file = 'input_data/cities15000.txt'
         self.country_list_file = 'input_data/countries.csv'
-        self.output_file = 'output_data/matches.csv'
+        self.output_file = 'output_data/matches_2.csv'
 
         self.countries = dict()
         self.iso_countries = dict()
@@ -94,7 +94,7 @@ class GeoCode:
         loc_match = dict()
         loc_count = dict()
 
-        with open(self.raw_location_file, 'r') as raw_reader:
+        with open(self.raw_location_file, 'rU') as raw_reader:
             raw_reader.readline()
             csv_raw = csv.reader(raw_reader)
             line_counter = 0
